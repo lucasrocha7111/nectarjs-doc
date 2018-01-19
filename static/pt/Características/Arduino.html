@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <title>Arduino - NectarJS</title>
+    <meta name="description" content="Javascript's God Mode">
+    <meta name="author" content="I, Me & Myself">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" href="../../themes/daux/img/favicon-blue.png" type="image/x-icon">
+
+    <!-- Mobile -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font -->
+    
+    <!-- CSS -->
+    <link href='../../themes/daux/css/theme-blue.min.css' rel='stylesheet' type='text/css'>
+            <!-- Tipue Search -->
+        <link href="../../tipuesearch/tipuesearch.css" rel="stylesheet">
+    
+    <!--[if lt IE 9]>
+    <script src="../../themes/daux/js/html5shiv-3.7.3.min.js"></script>
+    <![endif]-->
+</head>
+<body class=" ">
+    <div class="Columns content">
+    <aside class="Columns__left Collapsible">
+        <button type="button" class="Button Collapsible__trigger">
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+            <span class="Collapsible__trigger--bar"></span>
+        </button>
+
+        <a class="Brand" href="../../index.html">NectarJS</a>
+
+    <div class="Search">
+        <svg class="Search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 451 451">
+            <path d="M447.05 428l-109.6-109.6c29.4-33.8 47.2-77.9 47.2-126.1C384.65 86.2 298.35 0 192.35 0 86.25 0 .05 86.3.05 192.3s86.3 192.3 192.3 192.3c48.2 0 92.3-17.8 126.1-47.2L428.05 447c2.6 2.6 6.1 4 9.5 4s6.9-1.3 9.5-4c5.2-5.2 5.2-13.8 0-19zM26.95 192.3c0-91.2 74.2-165.3 165.3-165.3 91.2 0 165.3 74.2 165.3 165.3s-74.1 165.4-165.3 165.4c-91.1 0-165.3-74.2-165.3-165.4z"/>
+        </svg>
+        <input type="search" id="tipue_search_input" class="Search__field" placeholder="Search..." autocomplete="on"
+               results=25 autosave=text_search>
+    </div>
+
+        <div class="Collapsible__content">
+            <!-- Navigation -->
+            <ul class='Nav'><li class='Nav__item '><a href="../../pt/O_Projeto.html">O Projeto</a></li><li class='Nav__item '><a href="../../pt/Começar.html">Começar</a></li><li class='Nav__item Nav__item--open has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Características</a><ul class='Nav'><li class='Nav__item '><a href="../../pt/Características/Comum.html">Comum</a></li><li class='Nav__item '><a href="../../pt/Características/Alvos.html">Alvos</a></li><li class='Nav__item Nav__item--active'><a href="../../pt/Características/Arduino.html">Arduino</a></li></ul></li><li class='Nav__item  has-children'><a href="#" class="aj-nav folder"><i class="Nav__arrow">&nbsp;</i>Módulos</a><ul class='Nav'><li class='Nav__item '><a href="../../pt/Módulos/Customizar.html">Customizar</a></li><li class='Nav__item '><a href="../../pt/Módulos/Outras_Linguagens.html">Outras Linguagens</a></li></ul></li></ul>
+
+            <div class="Links">
+                
+                                    <div class="CodeToggler">
+                        <hr/>
+                                                    <label class="Checkbox">Show Code Blocks                                <input type="checkbox" class="CodeToggler__button--main" checked="checked"/>
+                                <div class="Checkbox__indicator"></div>
+                            </label>
+                                            </div>
+                
+                            </div>
+        </div>
+    </aside>
+    <div class="Columns__right Columns__right--full">
+        <div class="Columns__right__content">
+            <div class="doc_content">
+                <article class="Page">
+
+    <div class="Page__header">
+        <h1><a href="../../pt/Características/Comum.html">Características</a> <svg class="Page__header--separator" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 477.175 477.175"><path d="M360.73 229.075l-225.1-225.1c-5.3-5.3-13.8-5.3-19.1 0s-5.3 13.8 0 19.1l215.5 215.5-215.5 215.5c-5.3 5.3-5.3 13.8 0 19.1 2.6 2.6 6.1 4 9.5 4 3.4 0 6.9-1.3 9.5-4l225.1-225.1c5.3-5.2 5.3-13.8.1-19z"/></svg> <a href="../../pt/Características/Arduino.html">Arduino</a></h1>
+                        <span class="EditOn">
+            <a href="https://github.com/seraum/nectarjs/blob/master/docs/pt/Características/03_Arduino.md" target="_blank">
+                Edit on GitHub            </a>
+        </span>
+            </div>
+
+    <div class="s-content">
+        <h1 id="page_Flash">Flash</h1>
+<p>Você pode habilitar auto-flashing com <code>--flash</code>.</p>
+<p>Para fazer isso, você precisa do avrdude.</p>
+<h2 id="page_Instalando-o-avrdude">Instalando o avrdude</h2>
+<p>No Debian ou Ubuntu, apenas use :</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install avrdude
+</code></pre>
+<p>No Windows, faça o download e instale a ultima versão da IDE do Arduino : https://www.arduino.cc/en/Main/Software</p>
+<p>## Usando --flash</p>
+<p>A opção <code>--flash</code> requer a porta COM.</p>
+<p>Exemplo do Windows, com cabo USB plugado em um Arduino Mega 2560 :</p>
+<pre><code>nectar --target arduino-mega2560 --flash COM0 arduino.js
+</code></pre>
+<p>Exemplo do Debian, com cabo USB plugado em um Arduino Mega 2560 :</p>
+<pre><code>nectar --target arduino-mega2560 --flash /dev/ttyACM0 arduino.js
+</code></pre>
+<p>Você pode obter mais informações usando <code>--verbose</code></p>
+    </div>
+
+        <nav>
+        <ul class="Pager">
+            <li class=Pager--prev><a href="../../pt/Características/Alvos.html">Previous</a></li>            <li class=Pager--next><a href="../../pt/Módulos/Customizar.html">Next</a></li>        </ul>
+    </nav>
+    </article>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+    <!-- jQuery -->
+    <script src="../../themes/daux/js/jquery-1.11.3.min.js"></script>
+
+    <!-- hightlight.js -->
+    <script src="../../themes/daux/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <!-- JS -->
+    
+    <script src="../../themes/daux/js/daux.js"></script>
+
+            <!-- Tipue Search -->
+        <script type="text/javascript" src="../../tipuesearch/tipuesearch.js"></script>
+
+        <script>
+            window.onunload = function(){}; // force $(document).ready to be called on back/forward navigation in firefox
+            $(function() {
+                tipuesearch({
+                    'base_url': '../../'
+                });
+            });
+        </script>
+    
+</body>
+</html>

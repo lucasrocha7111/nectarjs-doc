@@ -256,6 +256,18 @@ Components
     a {
         text-decoration: none;
     }
+
+    .ModifiedDate {
+        float: left;
+        font-size: 10px;
+        color: gray;
+    }
+
+    .EditOn {
+        float: right;
+        font-size: 10px;
+        color: gray;
+    }
 }
 
 .Links {
@@ -310,9 +322,21 @@ Components
     }
 }
 
-.TableOfContents {
+.TableOfContentsContainer {
+    &__title {
+        border-bottom: 4px solid #efefef;
+        margin-bottom: 0 !important;
+    }
+
+    &__content > .TableOfContents {
+        margin-top: 0;
+    }
+}
+
+ul.TableOfContents {
+    float: none;
     font-size: 16px;
-    padding-left: 0;
+    padding-left: 1.5em;
     border-left: 6px solid #efefef;
 
     p {
@@ -325,6 +349,42 @@ Components
 
     .TableOfContents {
         border-left-width: 0;
+    }
+}
+
+.Columns__right--full .TableOfContentsContainer {
+    float: right;
+    min-width: 300px;
+    max-width: 25%;
+
+    .TableOfContentsContainer__content > .TableOfContents {
+        border-right: 2px solid #efefef;
+    }
+
+    .TableOfContents {
+        list-style-type: none;
+        padding-left: 0;
+    }
+
+    a {
+        display: block;
+        border-bottom: 1px solid #ddd;
+    }
+
+    li a {
+        padding-left: 0.75em;
+    }
+
+    li li a {
+        padding-left: 1.5em;
+    }
+
+    li li li a {
+        padding-left: 2.25em;
+    }
+
+    li li li li a {
+        padding-left: 3em;
     }
 }
 
@@ -361,5 +421,78 @@ Components
 
     &--prev > a {
         float: left;
+    }
+}
+
+.Checkbox {
+    position: relative;
+    display: block;
+    padding-left: 30px;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        z-index: -1;
+        opacity: 0;
+    }
+}
+
+.Checkbox__indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #e6e6e6;
+
+    /* Check mark */
+    &::after {
+        position: absolute;
+        display: none;
+        content: '';
+    }
+
+    /* Hover and focus states */
+    .Checkbox:hover input ~ &,
+    .Checkbox input:focus ~ & {
+        background: #ccc;
+    }
+
+    /* Checked state */
+    .Checkbox input:checked ~ & {
+        background: @dark;
+
+        /* Show check mark */
+        &::after {
+            display: block;
+        }
+    }
+
+    /* Hover state whilst checked */
+    .Checkbox:hover input:not([disabled]):checked ~ &, .Checkbox input:checked:focus ~ & {
+        background: @light;
+    }
+
+    /* Disabled state */
+    .Checkbox input:disabled ~ & {
+        pointer-events: none;
+        opacity: 0.6;
+        background: #e6e6e6;
+    }
+
+    /* Checkbox tick */
+    .Checkbox &::after {
+        top: 4px;
+        left: 8px;
+        width: 5px;
+        height: 10px;
+        transform: rotate(45deg);
+        border: solid #fff;
+        border-width: 0 2px 2px 0;
+    }
+
+    /* Disabled tick colour */
+    .Checkbox input:disabled ~ &::after {
+        border-color: #7b7b7b;
     }
 }

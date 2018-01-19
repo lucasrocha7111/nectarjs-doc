@@ -4,5 +4,6 @@
   "html":
   {
     "edit_on_github": "seraum/nectarjs/blob/master/docs"
-  }
+  },
+  "languages": { "en": "English", "pt": "Português" }
 }
